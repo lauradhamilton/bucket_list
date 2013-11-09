@@ -1,14 +1,28 @@
-<h2>Bucket Lists</h2>
+<div class="hero-unit">
+  <h1>My Bucket Lists</h1>
+  <p>This is a site to list what you're trying to accomplish in life!</p>
+  <p><%= link_to "Get Started", new_list_url, :class => "brn btn-primary btn-large" %></p>
+</div>
 
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, class:name %>
   <br>
 <% end %>
 
-<% @lists.each do |single_list| %>
-  <%= link_to single_list.name, list_path(single_list)  %>
-  <%= single_list.reason %>
-  <%= link_to "Edit", edit_list_path(single_list) %>
-  <%= link_to "Destroy", single_list, method: :delete, data: {confirm: "Are you sure you want to delete?"} %>
-  <br />
-<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <th>Name</th>
+    <th>Reason</th>
+    <th>Actions</th>
+  </thead>
+  <tbody>
+    <% @lists.each do |list| %>
+      <tr>
+        <td><%= link_to list.name, list_path(list) %></td>
+        <td><%= list.reason %></td>
+        <td><%= link_to "Edit", edit_list_path(list) %> | <%= link_to "Destroy", list, method: :delete, data: {confirm: "Are you sure?"} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

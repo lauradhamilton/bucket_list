@@ -1,4 +1,7 @@
 BucketList::Application.routes.draw do
+  resources :steps
+
+
   resources :lists
 
   root :to => 'lists#index'

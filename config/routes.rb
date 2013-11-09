@@ -1,8 +1,11 @@
 BucketList::Application.routes.draw do
-  resources :steps
-
-
-  resources :lists
+  resources :lists do
+    resources :steps do
+      member do
+        post :complete
+      end
+    end
+  end
 
   root :to => 'lists#index'
 

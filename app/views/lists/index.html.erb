@@ -1,7 +1,14 @@
 <h2>Bucket Lists</h2>
 
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class:name %>
+  <br>
+<% end %>
+
 <% @lists.each do |single_list| %>
-  <%= single_list.name %>
+  <%= link_to single_list.name, list_path(single_list)  %>
   <%= single_list.reason %>
+  <%= link_to "Edit", edit_list_path(single_list) %>
+  <%= link_to "Destroy", single_list, method: :delete, data: {confirm: "Are you sure you want to delete?"} %>
   <br />
 <% end %>

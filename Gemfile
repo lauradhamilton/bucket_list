@@ -19,7 +19,6 @@ end
 # in production environments by default.
 group :assets do
   gem 'twitter-bootstrap-rails'
-  gem 'less-rails'
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -27,6 +26,8 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
+
+gem 'less-rails'
 
 gem 'jquery-rails'
 

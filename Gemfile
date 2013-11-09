@@ -27,13 +27,11 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'less-rails-bootstrap'
+gem 'less-rails'
 
 gem 'jquery-rails'
 
-group :development do
-  gem 'therubyracer'
-end
+gem 'therubyracer'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
